@@ -2,16 +2,25 @@
 
 C++ program to analyze application source code data.
 
-This counts number of files and lines for desired language.
+This counts number of files and lines for desired languages.
 
+## How to compile
+
+Navigate to the project directory and compile with the following command:
+
+````
+$ g++ --std=c++20 *.cpp *.h -o LineCounter
+````
+Now use can use generated LineCounter(.exe) binary.
 
 ## Usage
 
 ````
-$ ./LineCounter <folder location> <language #1> <language #2> <language #3> ...
+$ ./LineCounter.exe <folder location> <language #1> <language #2> <language #3> ...
 ````
 
 ## Example
+
 ````
 $ .\LineCounter.exe "path\to\project\source" java sql xml css
 Listing source code data

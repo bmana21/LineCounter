@@ -4,6 +4,14 @@
 
 #include "line_counter.h"
 
+string to_lower_string(const string &str) {
+    string result;
+    for (int i = 0; i < str.size(); i++) {
+        result += tolower(str[i]);
+    }
+    return result;
+}
+
 string get_file_extension(const string &file_path) {
     if (file_path.find('.') == string::npos) {
         return "";
@@ -25,7 +33,7 @@ SourceCodeData count_lines_of_extension(const fs::path &path, const string &exte
 
     if (is_regular_file(path)) {
         auto file_extension = get_file_extension(path.string());
-        if (file_extension != extension) {
+        if (to_lower_string(file_extension) != to_lower_string(extension)) {
             return {};
         }
         ifstream inFile(path.string());

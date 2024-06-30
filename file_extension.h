@@ -15,9 +15,9 @@ const map<string, vector<string> > FILE_EXTESIONS = {
     {"java", vector<string>{"java"}},
     {"kotlin", vector<string>{"kt"}},
     {"sql", vector<string>{"sql"}},
-    {"c++", vector<string>{"cpp", "cxx", "h", "hpp", "hxx"}},
-    {"cpp", vector<string>{"cpp", "cxx", "h", "hpp", "hxx"}},
-    {"c#", vector<string>{"cpp", "cxx", "h", "hpp", "hxx"}},
+    {"c++", vector<string>{"cpp", "cxx", "h", "hpp", "hxx", "cc"}},
+    {"cpp", vector<string>{"cpp", "cxx", "h", "hpp", "hxx", "cc"}},
+    {"c#", vector<string>{"cs"}},
     {"c", vector<string>{"c", "h"}},
     {"python", vector<string>{"py"}},
     {"rust", vector<string>{"rs"}},
@@ -25,12 +25,12 @@ const map<string, vector<string> > FILE_EXTESIONS = {
     {"typescript", vector<string>{"ts"}},
     {"php", vector<string>{"php"}},
     {"go", vector<string>{"go"}},
-    {"java", vector<string>{"java"}},
     {"swift", vector<string>{"swift"}},
     {"xml", vector<string>{"xml"}},
     {"html", vector<string>{"html"}},
     {"css", vector<string>{"css"}},
-
+    {"assembly", vector<string>{"asm", "s", "nasm", "a"}},
+    {"perl", vector<string>{"pl"}},
 };
 
 
