@@ -10,13 +10,15 @@ using namespace std;
 
 bool get_file_extensions(int const argc, char **argv, set<string> &file_extensions_set) {
     for (int i = 2; i < argc; i++) {
-        auto it = FILE_EXTESIONS.find(argv[i]);
+        string lang = to_lower_string(argv[i]);
+
+        auto it = FILE_EXTESIONS.find(lang);
 
         if (it == FILE_EXTESIONS.end()) {
-            cerr << "Language " << argv[i] << " not found" << endl;
+            cerr << "Language " << lang << " not found" << endl;
             cerr << "Available languages are: " << endl;
-            for (const auto &lang: views::keys(FILE_EXTESIONS)) {
-                cerr << lang << endl;
+            for (const auto &available_lang: views::keys(FILE_EXTESIONS)) {
+                cerr << available_lang << endl;
             }
             return false;
         }
@@ -44,7 +46,7 @@ int main(int const argc, char *argv[]) {
 
     cout << "Listing source code data" << endl << endl;
 
-    int total_lines = 0, total_files  = 0;
+    int total_lines = 0, total_files = 0;
 
     for (const auto &data: count_lines(path, file_extensions)) {
         if (data.get_line_count() + data.get_file_count() == 0) {

@@ -7,7 +7,11 @@
 string to_lower_string(const string &str) {
     string result;
     for (int i = 0; i < str.size(); i++) {
-        result += tolower(str[i]);
+        if (isalpha(str[i])) {
+            result += tolower(str[i]);
+        } else {
+            result += str[i];
+        }
     }
     return result;
 }
@@ -33,7 +37,7 @@ SourceCodeData count_lines_of_extension(const fs::path &path, const string &exte
 
     if (is_regular_file(path)) {
         auto file_extension = get_file_extension(path.string());
-        if (to_lower_string(file_extension) != to_lower_string(extension)) {
+        if (to_lower_string(file_extension) != extension) {
             return {};
         }
         ifstream inFile(path.string());
@@ -58,7 +62,7 @@ SourceCodeData count_lines_of_extension(const fs::path &path, const string &exte
 vector<SourceCodeData> count_lines(const string &path, const vector<string> &file_extensions) {
     vector<SourceCodeData> result;
     for (const auto &extension: file_extensions) {
-        result.push_back(count_lines_of_extension(fs::path(path), extension));
+        result.push_back(count_lines_of_extension(fs::path(path), to_lower_string(extension)));
     }
     return result;
 }
